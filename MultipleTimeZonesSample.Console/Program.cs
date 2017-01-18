@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -7,11 +8,18 @@ using c = System.Console;
 
 namespace MultipleTimeZonesSample.Console
 {
-    class Program
+    internal class Program
     {
-        static void Main(string[] args)
+        private static void Main(string[] args)
         {
-            var original = new DateTime(2017, 1, 14, 1, 30, 0, DateTimeKind.Utc);
+            Issue_withDateTime_Comparer();
+            System.Console.ReadKey();
+
+        }
+
+        private static void Issue_withDateTimeKind_Unspecified()
+        {
+            var original = new DateTime(2017, 1, 14, 1, 30, 0);
             c.WriteLine("User input:");
             c.WriteLine("Input:\t\t{0}", original);
             c.WriteLine("ISO 8601:\t{0:O}", original);
@@ -41,17 +49,39 @@ namespace MultipleTimeZonesSample.Console
             c.WriteLine("Sortable:\t{0:s}", local);
             c.WriteLine("UTC sortable:\t{0:u}", local);
             c.WriteLine("UTC full:\t{0:U}", local);
+        }
 
+        private static void Issue_withDateTimeKind_notParsing()
+        {
+            var formaters = new Dictionary<string, string>
+            {
+                {"ISO 8601", "O"},
+                {"RFC 1123", "R"},
+                {"Sortable", "s"},
+                {"UTC sortable", "u"},
+                {"UTC full", "U"}
+            };
 
+            var original = new DateTime(2017, 1, 14, 1, 30, 0, DateTimeKind.Utc);
+            foreach (var formater in formaters)
+            {
+                c.WriteLine(formater.Key);
+                var dateString = original.ToString(formater.Value);
+                var parsed = DateTime.Parse(dateString, null, DateTimeStyles.AdjustToUniversal);
+                c.WriteLine("Original:\t{0}\tKind: {1}", original.ToString(formater.Value), original.Kind);
+                c.WriteLine("Parsed:\t\t{0}\tKind: {1}", parsed.ToString(formater.Value), parsed.Kind);
+            }
+        }
 
-            //var userInput1 = new DateTime(2017, 1, 14, 1, 30, 0, DateTimeKind.Utc);
-            //var utcTime1 = userInput.ToUniversalTime();
+        private static void Issue_withDateTime_Comparer()
+        {
+            var originalUtc = new DateTime(2017, 1, 14, 1, 30, 0, DateTimeKind.Utc);
+            var newYorkTimezone = TimeZoneInfo.FindSystemTimeZoneById("Eastern Standard Time");
+            var newYorkTime = TimeZoneInfo.ConvertTimeFromUtc(originalUtc, newYorkTimezone);
+            var newUtc = new DateTime(newYorkTime.Year, newYorkTime.Month, newYorkTime.Day, newYorkTime.Hour, newYorkTime.Minute, newYorkTime.Second, DateTimeKind.Utc);
 
-            //System.Console.WriteLine(userInput.ToString("u"));
-            //System.Console.WriteLine(utcTime.ToString("u"));
-            //System.Console.WriteLine(userInput1.ToString("u"));
-            //System.Console.WriteLine(utcTime1.ToString("u"));
-            System.Console.ReadKey();
+            c.WriteLine(newYorkTime == newUtc); // True
+
         }
     }
 }
