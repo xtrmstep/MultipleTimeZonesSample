@@ -43,6 +43,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Issue_withDateTimeKind_notParsing.cs" />
+    <Compile Include="Issue_withDateTimeKind_Unspecified.cs" />
+    <Compile Include="Issue_withDateTime_Comparer.cs" />
+    <Compile Include="Issue_withDateTime_Running_inDst_FallBack.cs" />
+    <Compile Include="Issue_withDateTime_Running_inDst_FallBack_UserInput.cs" />
+    <Compile Include="Issue_withDateTime_Running_inDst_SprintForward.cs" />
+    <Compile Include="Issue_withDateTime_Running_inDst_SprintForward_UserInput.cs" />
+    <Compile Include="Issue_withDateTime_Scheduling_inFuture.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
