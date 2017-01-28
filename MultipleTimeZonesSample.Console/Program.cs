@@ -12,7 +12,7 @@ namespace MultipleTimeZonesSample.Console
     {
         private static void Main(string[] args)
         {
-            Comparison_withDateTime.Run();
+            Dst_SpringForward_withDateTime.Run();
             System.Console.ReadKey();
             
         }

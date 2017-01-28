@@ -5,34 +5,57 @@ namespace MultipleTimeZonesSample.Console.Examples.Dst
 {
     public class Dst_SpringForward_withDateTime
     {
+        // there is no such time for GMT (from 1 to 1:59)
+        private static DateTime _springForward = new DateTime(2017, 3, 26, 1, 0, 0);
+
         public static void Run()
         {
-            var londonTimezone = TimeZoneInfo.FindSystemTimeZoneById("GMT Standard Time");
-            var events = new Dictionary<DateTime, int>();
-            var startUtcPeriod = new DateTime(2017, 3, 25, 23, 0, 0);
-            var finishUtcPeriod = new DateTime(2017, 3, 26, 3, 0, 0);
-            const int step = 10; // minutes
-
-            var current = startUtcPeriod;
-            while (current < finishUtcPeriod)
+            var userInput = new[]
             {
-                var londonTime = TimeZoneInfo.ConvertTimeFromUtc(current, londonTimezone);
-
-                if (!events.ContainsKey(londonTime))
-                    events.Add(londonTime, 0);
-                events[londonTime] += 1;
-                current = current.AddMinutes(step);
+                new DateTime(2017, 3, 25, 23, 0, 0),
+                new DateTime(2017, 3, 25, 23, 10, 0),
+                new DateTime(2017, 3, 25, 23, 20, 0),
+                new DateTime(2017, 3, 25, 23, 30, 0),
+                new DateTime(2017, 3, 25, 23, 40, 0),
+                new DateTime(2017, 3, 25, 23, 50, 0),
+                new DateTime(2017, 3, 26, 0, 0, 0),
+                new DateTime(2017, 3, 26, 0, 10, 0),
+                new DateTime(2017, 3, 26, 0, 20, 0),
+                new DateTime(2017, 3, 26, 0, 30, 0),
+                new DateTime(2017, 3, 26, 0, 40, 0),
+                new DateTime(2017, 3, 26, 0, 50, 0),
+                // DST sprint forward + 1
+                new DateTime(2017, 3, 26, 2, 00, 0),
+                new DateTime(2017, 3, 26, 2, 10, 0),
+                new DateTime(2017, 3, 26, 2, 20, 0),
+                new DateTime(2017, 3, 26, 2, 30, 0),
+                new DateTime(2017, 3, 26, 2, 40, 0),
+                new DateTime(2017, 3, 26, 2, 50, 0),
+                new DateTime(2017, 3, 26, 3, 00, 0),
+                new DateTime(2017, 3, 26, 3, 10, 0),
+                new DateTime(2017, 3, 26, 3, 20, 0),
+                new DateTime(2017, 3, 26, 3, 30, 0),
+                new DateTime(2017, 3, 26, 3, 40, 0),
+                new DateTime(2017, 3, 26, 3, 50, 0)
+            };
+            var londonTimezone = TimeZoneInfo.FindSystemTimeZoneById("GMT Standard Time");
+            var eventsInUtc = new Dictionary<DateTime, int>();
+            foreach (var dateTime in userInput)
+            {
+                var utcTime = TimeZoneInfo.ConvertTimeToUtc(dateTime, londonTimezone);
+                if (!eventsInUtc.ContainsKey(utcTime))
+                    eventsInUtc.Add(utcTime, 0);
+                eventsInUtc[utcTime] += 1;
             }
 
-            current = startUtcPeriod;
-            while (current < finishUtcPeriod)
+            foreach (var dateTime in userInput)
             {
                 var value = "-";
-                if (events.ContainsKey(current))
-                    value = events[current].ToString();
-                System.Console.WriteLine("{0:s}: {1}", current, value);
-                current = current.AddMinutes(step);
+                if (eventsInUtc.ContainsKey(dateTime))
+                    value = eventsInUtc[dateTime].ToString();
+                System.Console.WriteLine("{0:s}: {1}", dateTime, value);
             }
         }
+
     }
 }
