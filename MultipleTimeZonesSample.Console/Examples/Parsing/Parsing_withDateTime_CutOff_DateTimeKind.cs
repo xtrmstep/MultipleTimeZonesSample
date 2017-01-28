@@ -2,9 +2,9 @@ using System;
 using System.Collections.Generic;
 using System.Globalization;
 
-namespace MultipleTimeZonesSample.Console
+namespace MultipleTimeZonesSample.Console.Examples.Parsing
 {
-    public class DateTimeKind_notParsing
+    public class Parsing_withDateTime_CutOff_DateTimeKind
     {
         public static void Run()
         {

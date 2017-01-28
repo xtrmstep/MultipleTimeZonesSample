@@ -1,8 +1,8 @@
 using System;
 
-namespace MultipleTimeZonesSample.Console
+namespace MultipleTimeZonesSample.Console.Examples.Comparison
 {
-    public class Comparer_withDateTime
+    public class Comparison_withDateTime
     {
         public static void Run()
         {

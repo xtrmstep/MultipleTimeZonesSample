@@ -1,8 +1,8 @@
 ﻿using System;
 
-namespace MultipleTimeZonesSample.Console
+namespace MultipleTimeZonesSample.Console.Examples.TimeZone
 {
-    public class DateTimeKind_Unspecified
+    public class TimeZone_withDateTime_DateTimeKind_Unspecified
     {
         public static void Run()
         {

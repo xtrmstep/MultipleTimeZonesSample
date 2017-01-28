@@ -1,6 +1,6 @@
 using System;
 
-namespace MultipleTimeZonesSample.Console
+namespace MultipleTimeZonesSample.Console.Examples.Scheduling
 {
     public class Scheduling_withDateTime
     {

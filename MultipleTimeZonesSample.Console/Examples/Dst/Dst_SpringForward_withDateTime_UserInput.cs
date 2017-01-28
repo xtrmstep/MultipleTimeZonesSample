@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace MultipleTimeZonesSample.Console
+namespace MultipleTimeZonesSample.Console.Examples.Dst
 {
     public class Dst_SpringForward_withDateTime_UserInput
     {

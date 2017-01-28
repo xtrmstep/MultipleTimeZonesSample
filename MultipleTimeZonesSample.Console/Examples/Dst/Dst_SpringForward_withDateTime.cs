@@ -1,16 +1,16 @@
 using System;
 using System.Collections.Generic;
 
-namespace MultipleTimeZonesSample.Console
+namespace MultipleTimeZonesSample.Console.Examples.Dst
 {
-    public class Dst_FallBack_withDateTime
+    public class Dst_SpringForward_withDateTime
     {
         public static void Run()
         {
             var londonTimezone = TimeZoneInfo.FindSystemTimeZoneById("GMT Standard Time");
             var events = new Dictionary<DateTime, int>();
-            var startUtcPeriod = new DateTime(2017, 10, 28, 23, 00, 0);
-            var finishUtcPeriod = new DateTime(2017, 10, 29, 3, 0, 0);
+            var startUtcPeriod = new DateTime(2017, 3, 25, 23, 0, 0);
+            var finishUtcPeriod = new DateTime(2017, 3, 26, 3, 0, 0);
             const int step = 10; // minutes
 
             var current = startUtcPeriod;
@@ -34,6 +34,5 @@ namespace MultipleTimeZonesSample.Console
                 current = current.AddMinutes(step);
             }
         }
-
     }
 }

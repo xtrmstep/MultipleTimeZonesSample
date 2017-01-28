@@ -43,14 +43,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DateTimeKind_notParsing.cs" />
-    <Compile Include="DateTimeKind_Unspecified.cs" />
-    <Compile Include="Comparer_withDateTime.cs" />
-    <Compile Include="Dst_FallBack_withDateTime.cs" />
-    <Compile Include="Dst_FallBack_withDateTime_UserInput.cs" />
-    <Compile Include="Dst_SpringForward_withDateTime.cs" />
-    <Compile Include="Dst_SpringForward_withDateTime_UserInput.cs" />
-    <Compile Include="Scheduling_withDateTime.cs" />
+    <Compile Include="Examples\Parsing\Parsing_withDateTime_CutOff_DateTimeKind.cs" />
+    <Compile Include="Examples\TimeZone\TimeZone_withDateTime_DateTimeKind_Unspecified.cs" />
+    <Compile Include="Examples\Comparison\Comparison_withDateTime.cs" />
+    <Compile Include="Examples\Dst\Dst_FallBack_withDateTime.cs" />
+    <Compile Include="Examples\Dst\Dst_FallBack_withDateTime_UserInput.cs" />
+    <Compile Include="Examples\Dst\Dst_SpringForward_withDateTime.cs" />
+    <Compile Include="Examples\Dst\Dst_SpringForward_withDateTime_UserInput.cs" />
+    <Compile Include="Examples\Scheduling\Scheduling_withDateTime.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
