@@ -2,7 +2,7 @@ using System;
 
 namespace MultipleTimeZonesSample.Console
 {
-    public class Issue_withDateTime_Scheduling_inFuture
+    public class Scheduling_withDateTime
     {
 
         public static void Run()

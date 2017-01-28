@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace MultipleTimeZonesSample.Console
 {
-    public class Issue_withDateTime_Running_inDst_SprintForward
+    public class Dst_SpringForward_withDateTime
     {
         public static void Run()
         {

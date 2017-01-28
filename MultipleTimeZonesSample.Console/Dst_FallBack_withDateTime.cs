@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace MultipleTimeZonesSample.Console
 {
-    public class Issue_withDateTime_Running_inDst_FallBack
+    public class Dst_FallBack_withDateTime
     {
         public static void Run()
         {

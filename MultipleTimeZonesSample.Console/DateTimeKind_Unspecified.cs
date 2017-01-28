@@ -2,7 +2,7 @@
 
 namespace MultipleTimeZonesSample.Console
 {
-    public class Issue_withDateTimeKind_Unspecified
+    public class DateTimeKind_Unspecified
     {
         public static void Run()
         {

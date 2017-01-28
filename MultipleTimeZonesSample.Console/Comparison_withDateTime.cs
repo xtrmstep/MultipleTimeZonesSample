@@ -2,7 +2,7 @@ using System;
 
 namespace MultipleTimeZonesSample.Console
 {
-    public class Issue_withDateTime_Comparer
+    public class Comparer_withDateTime
     {
         public static void Run()
         {

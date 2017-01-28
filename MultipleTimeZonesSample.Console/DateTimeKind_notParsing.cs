@@ -4,7 +4,7 @@ using System.Globalization;
 
 namespace MultipleTimeZonesSample.Console
 {
-    public class Issue_withDateTimeKind_notParsing
+    public class DateTimeKind_notParsing
     {
         public static void Run()
         {
