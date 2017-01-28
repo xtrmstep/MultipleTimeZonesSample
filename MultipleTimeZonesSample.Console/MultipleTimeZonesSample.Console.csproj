@@ -43,7 +43,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Examples\Comparison\Comparison_withDateTimeOffset.cs" />
+    <Compile Include="Examples\Dst\Dst_FallBack_withDateTimeOffset.cs" />
+    <Compile Include="Examples\Dst\Dst_SpringForward_withDateTimeOffset.cs" />
+    <Compile Include="Examples\Parsing\Parsing_withDateTimeOffset.cs" />
     <Compile Include="Examples\Parsing\Parsing_withDateTime_CutOff_DateTimeKind.cs" />
+    <Compile Include="Examples\Scheduling\Scheduling_withDateTimeOffset.cs" />
+    <Compile Include="Examples\TimeZone\TimeZone_withDateTimeOffset.cs" />
     <Compile Include="Examples\TimeZone\TimeZone_withDateTime_DateTimeKind_Unspecified.cs" />
     <Compile Include="Examples\Comparison\Comparison_withDateTime.cs" />
     <Compile Include="Examples\Dst\Dst_FallBack_withDateTime.cs" />

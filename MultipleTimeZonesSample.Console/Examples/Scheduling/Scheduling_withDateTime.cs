@@ -4,7 +4,6 @@ namespace MultipleTimeZonesSample.Console.Examples.Scheduling
 {
     public class Scheduling_withDateTime
     {
-
         public static void Run()
         {
             var londonTimezone = TimeZoneInfo.FindSystemTimeZoneById("GMT Standard Time");

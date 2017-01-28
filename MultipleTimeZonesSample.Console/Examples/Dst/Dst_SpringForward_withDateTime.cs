@@ -48,12 +48,9 @@ namespace MultipleTimeZonesSample.Console.Examples.Dst
                 eventsInUtc[utcTime] += 1;
             }
 
-            foreach (var dateTime in userInput)
+            foreach (var pair in eventsInUtc)
             {
-                var value = "-";
-                if (eventsInUtc.ContainsKey(dateTime))
-                    value = eventsInUtc[dateTime].ToString();
-                System.Console.WriteLine("{0:s}: {1}", dateTime, value);
+                System.Console.WriteLine("{0}: {1}", pair.Key, pair.Value);
             }
         }
 

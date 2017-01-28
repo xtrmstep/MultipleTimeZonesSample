@@ -5,6 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using MultipleTimeZonesSample.Console.Examples.Comparison;
 using MultipleTimeZonesSample.Console.Examples.Dst;
+using MultipleTimeZonesSample.Console.Examples.Parsing;
+using MultipleTimeZonesSample.Console.Examples.Scheduling;
+using MultipleTimeZonesSample.Console.Examples.TimeZone;
 
 namespace MultipleTimeZonesSample.Console
 {
@@ -12,7 +15,7 @@ namespace MultipleTimeZonesSample.Console
     {
         private static void Main(string[] args)
         {
-            Dst_SpringForward_withDateTime.Run();
+            Dst_SpringForward_withDateTimeOffset.Run();
             System.Console.ReadKey();
             
         }
