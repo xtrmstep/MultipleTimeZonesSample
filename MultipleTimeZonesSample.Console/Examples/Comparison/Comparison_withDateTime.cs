@@ -9,9 +9,8 @@ namespace MultipleTimeZonesSample.Console.Examples.Comparison
             var originalUtc = new DateTime(2017, 1, 14, 1, 30, 0, DateTimeKind.Utc);
             var newYorkTimezone = TimeZoneInfo.FindSystemTimeZoneById("Eastern Standard Time");
             var newYorkTime = TimeZoneInfo.ConvertTimeFromUtc(originalUtc, newYorkTimezone);
-            var newUtc = new DateTime(newYorkTime.Year, newYorkTime.Month, newYorkTime.Day, newYorkTime.Hour, newYorkTime.Minute, newYorkTime.Second, DateTimeKind.Utc);
 
-            System.Console.WriteLine(newYorkTime == newUtc); // True
+            System.Console.WriteLine(originalUtc == newYorkTime); // False, but should be True since the same moment in time
 
         }
     }
