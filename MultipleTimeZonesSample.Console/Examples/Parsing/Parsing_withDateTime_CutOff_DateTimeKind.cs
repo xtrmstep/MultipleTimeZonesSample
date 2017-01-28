@@ -8,24 +8,25 @@ namespace MultipleTimeZonesSample.Console.Examples.Parsing
     {
         public static void Run()
         {
-            var formaters = new Dictionary<string, string>
-            {
-                {"ISO 8601", "O"},
-                {"RFC 1123", "R"},
-                {"Sortable", "s"},
-                {"UTC sortable", "u"},
-                {"UTC full", "U"}
-            };
-
             var original = new DateTime(2017, 1, 14, 1, 30, 0, DateTimeKind.Utc);
-            foreach (var formater in formaters)
-            {
-                System.Console.WriteLine(formater.Key);
-                var dateString = original.ToString(formater.Value);
-                var parsed = DateTime.Parse(dateString, null, DateTimeStyles.AdjustToUniversal);
-                System.Console.WriteLine("Original:\t{0}\tKind: {1}", original.ToString(formater.Value), original.Kind);
-                System.Console.WriteLine("Parsed:\t\t{0}\tKind: {1}", parsed.ToString(formater.Value), parsed.Kind);
-            }
+            System.Console.WriteLine("Sortable: " + original.ToString("s"));
+            System.Console.WriteLine("ISO 8601: " + original.ToString("O"));
+            System.Console.WriteLine("Zulu time: " + original.ToString("u"));
+            System.Console.WriteLine("Unit time: " + original.Ticks);
+
+            System.Console.WriteLine("");
+
+            var parsed = DateTime.Parse("2017-01-14T01:30:00", null, DateTimeStyles.AdjustToUniversal);
+            System.Console.WriteLine("Parsed: {0:s} Kind: {1}", parsed, parsed.Kind);
+
+            parsed = DateTime.Parse("2017-01-14T01:30:00.0000000Z", null, DateTimeStyles.AdjustToUniversal);
+            System.Console.WriteLine("Parsed: {0:s} Kind: {1}", parsed, parsed.Kind);
+
+            parsed = DateTime.Parse("2017-01-14 01:30:00Z", null, DateTimeStyles.AdjustToUniversal);
+            System.Console.WriteLine("Parsed: {0:s} Kind: {1}", parsed, parsed.Kind);
+
+            parsed = DateTime.FromFileTimeUtc(long.Parse("636199542000000000"));
+            System.Console.WriteLine("Parsed: {0:s} Kind: {1}", parsed, parsed.Kind);
         }
     }
 }
